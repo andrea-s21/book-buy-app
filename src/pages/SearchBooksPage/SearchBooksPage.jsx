@@ -11,7 +11,7 @@ export default function SearchBooksPage() {
   useEffect(() => {
   const getBook = async () => {
     const response = await fetch(
-      `https://www.googleapis.com/books/v1/volumes?q=isbn${query}:&key=AIzaSyDm7IixUsUYb7T6XIRELsk8ks0ciK7xgdk`
+      `https://www.googleapis.com/books/v1/volumes?q=isbn${query}`
       );
       const book = await response.json();
       setBook(book);
