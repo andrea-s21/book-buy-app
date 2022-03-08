@@ -5,30 +5,30 @@ import '../SearchBooksPage/SearchBooksPage.css';
 // const KEY = process.env.REACT_APP_API_KEY;
 
 export default function SearchBooksPage() {
-  const [query, setQuery] = useState('');
-  const [book, setBook] = useState([]);
+  // const [query, setQuery] = useState('');
+  // const [book, setBook] = useState([]);
 
-  useEffect(() => {
-  const getBook = async () => {
-    const response = await fetch(
-      `https://www.googleapis.com/books/v1/volumes?q=isbn${query}`
-      );
-      const book = await response.json();
-      setBook(book);
-    };
-      getBook();
-      // console.log(book);  
-    },[query]);
+  // useEffect(() => {
+  // const getBook = async () => {
+  //   const response = await fetch(
+  //     `https://www.googleapis.com/books/v1/volumes?q=isbn${query}`
+  //     );
+  //     const book = await response.json();
+  //     setBook(book);
+  //   };
+  //     getBook();
+  //     // console.log(book);  
+  //   },[query]);
 
-  function handleGetBook(evt){
-    evt.preventDefault();
-    setBook(book);
-  }
+  // function handleGetBook(evt){
+  //   evt.preventDefault();
+  //   setBook(book);
+  // }
 
   return (
     <div>
     <h1>Search Books</h1>
-    <form className="ISBN-form" onSubmit={handleGetBook} >
+    {/* <form className="ISBN-form" onSubmit={handleGetBook} >
       <label>Search for a books</label>
       <input
        value={query}
@@ -38,7 +38,7 @@ export default function SearchBooksPage() {
       //  pattern=".{10,}"
       />
       <button className="ISBN-form" type="submit">Search</button>
-    </form>
+    </form> */}
     </div>
   );
 }
