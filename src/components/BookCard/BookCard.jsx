@@ -1,7 +1,12 @@
+import { useNavigate } from 'react-router-dom';
+
 export default function BookCard({ book, addBook }) {
-  console.log(book);
+  const navigate = useNavigate();
+
   function handleAddBook() {
+    //after submit form redirect user
     addBook(book)
+    navigate('/listings');
   }
 
     return (
@@ -25,6 +30,7 @@ export default function BookCard({ book, addBook }) {
         <p className="card-title" name="desciption">{book.volumeInfo.description}</p>
         <form>
           <button onClick={handleAddBook}>List This Book</button>
+          
         </form>
       </div>
     );
