@@ -13,7 +13,7 @@ export default function NavBar({ user, setUser }) {
       &nbsp; | &nbsp;
       <Link to="/books/sell">Sell Books</Link>
       &nbsp; | &nbsp;
-      <Link to="/books/search">Search Available Books</Link>
+      <Link to="/books/buy">Search Available Books</Link>
       &nbsp; | &nbsp;
       <Link to="/listings">My Listings</Link>
       &nbsp; | &nbsp;

@@ -6,6 +6,10 @@ export function search(query) {
     return sendRequest(`${BASE_URL}/search`, 'POST', {query});
 }
 
+export function addBook(book) {
+    return sendRequest(`${BASE_URL}/add`, 'POST', book);
+}
+
 async function sendRequest(url, method = 'GET', payload = null) {
     // Fetch accepts an options object as the 2nd argument
     // used to include a data payload, set headers, etc. 

@@ -3,43 +3,16 @@ const Schema = mongoose.Schema;
 
 
 const bookSchema = new Schema({
-    title: {
-        type: String,
-        required: true
-    },
-    author: {
-        type: String,
-        required: true
-    },
-    published: {
-        type: String,
-        required: true
-    },
-    language: {
-        type: String,
-        required: true
-    },
-    rating: {
-        type: String,
-        required: true
-    },
-    category: {
-        type: String,
-        required: true
-    },
-    description: {
-        type: String,
-        required: true
-    },
-    condition: {
-        type: String,
-        required: true
-    },
-    user: { type: Schema.Types.ObjectId, ref: 'User' },
-    userName: String,
-    userAvatar: String
-}, {
-    timestamps: true
-});
+    imageLinks: {smallThumbnail: {type: String, default: "Unavailiable"}, thumbnail: {type: String, default: "Unavailiable"}},
+    title: {type: String},
+    authors: [],
+    publisher: {type: String, default: 'Unavailiable'},
+    averageRating: {type:Number, default: 'Unavailiable'},
+    categories: [],
+    description: { type: String, default: 'Unavailiable'},
+    condition: {type: String, default: 'Unavailiable'},
+    price: {type: Number, default: 0},
+}, { timestamps: true });
+
 
 module.exports = mongoose.model('Book', bookSchema);

@@ -1,13 +1,7 @@
 import BookListContainer from "../BookListContainer/BookListContainer";
-import { useState } from "react";
+
 
 export default function SellBookForm({books, query, setQuery, handleGetBooks, addBook}) {
-    const [newBook, setNewBook] = useState({ items: [] });
-    function handleAddBook(evt) {
-        evt.preventDefault();
-        addBook(newBook);
-        setNewBook();
-      }
 
     return(
         <div>
@@ -19,7 +13,7 @@ export default function SellBookForm({books, query, setQuery, handleGetBooks, ad
        //  pattern=".{10,}"
        />
        <button className="ISBN-form" onClick={() => handleGetBooks(query)}>Search</button>
-       <BookListContainer books={books} handleAddBook={handleAddBook} />
+       <BookListContainer books={books} addBook={addBook} />
        </div>
     );
 }
