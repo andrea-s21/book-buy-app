@@ -6,33 +6,29 @@ import '../SearchBooksPage/SearchBooksPage.css';
 // const API_KEY = process.env.REACT_APP_API_KEY;
 
 export default function SellBooksPage() {
-  const [query, setQuery] = useState();
-  const [book, setBook] = useState([]);
+  const [query, setQuery] = useState('');
+  const [books, setBooks] = useState({ items: [] });
 
-  function handleGetBook(){
-  const getBook = async () => {
+  function handleGetBooks(){
+  const getBooks = async () => {
     const response = await fetch(
       `https://www.googleapis.com/books/v1/volumes?q=${query}&printType=books`
       )
-      const book = await response.json();
-      setBook(book);
+      const books = await response.json();
+      setBooks(books);
     };
-      getBook(book);
-      console.log(book);  
+      getBooks(books);
+      console.log(books);  
     };
+
+    function addBook(book) {
+      setBooks([...books, book]);
+    }
 
   return (
     <div>
-            {/* <SellBookForm book={book} /> */}
-              <input
-               value={query}
-               onChange={(evt) => setQuery(evt.target.value)}
-               placeholder="Search Books"
-               required
-              //  pattern=".{10,}"
-              />
-              <button className="ISBN-form" onClick={handleGetBook}>Search</button>
-            <BookListContainer book={book} />
+      <h1>Sell A Book</h1>
+            <SellBookForm books={books} query={query} setQuery={setQuery} handleGetBooks={handleGetBooks} addBook={addBook} />
     </div>
   );
 }

@@ -22,6 +22,10 @@ export default function App() {
               {/* <Route path="/" element={<HomePage />} /> */}
               <Route path="/books/sell" element={<SellBooksPage />} />
               <Route path="/books/search" element={<SearchBooksPage />} />
+              {/* <Route 
+              exact 
+              path="/books/:id" 
+              element={<BookDetailPage />} /> */}
               <Route path="/listings" element={<CurrentListingsPage />} />
               <Route path="/orders" element={<OrderHistoryPage />} />
             </Routes>

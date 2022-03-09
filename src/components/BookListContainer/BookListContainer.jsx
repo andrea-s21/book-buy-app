@@ -1,12 +1,12 @@
 import BookCard from "../BookCard/BookCard";
 
 
-export default function BookListContainer({book}) {
+export default function BookListContainer({books, handleAddBook}) {
     return(
         <ul>
-        {book.items.map((book, index) => {
-          return <BookCard book={book} key={index} />;
+       {books.items.map((book, index) => {
+          return <BookCard book={book} key={index} handleAddBook={handleAddBook} />;
         })}
-      </ul>
+      </ul> 
     );
 }
