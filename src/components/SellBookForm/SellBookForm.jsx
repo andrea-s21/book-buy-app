@@ -18,7 +18,7 @@ export default function SellBookForm({books, query, setQuery, handleGetBooks, ad
         required
        //  pattern=".{10,}"
        />
-       <button className="ISBN-form" onClick={handleGetBooks}>Search</button>
+       <button className="ISBN-form" onClick={() => handleGetBooks(query)}>Search</button>
        <BookListContainer books={books} handleAddBook={handleAddBook} />
        </div>
     );

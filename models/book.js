@@ -42,4 +42,4 @@ const bookSchema = new Schema({
     timestamps: true
 });
 
-module.exports = mongoose.model('Bookmark', bookmarkSchema);
+module.exports = mongoose.model('Book', bookSchema);

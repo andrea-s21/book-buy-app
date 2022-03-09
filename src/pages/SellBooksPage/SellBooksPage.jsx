@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
-import BookListContainer from '../../components/BookListContainer/BookListContainer';
 import SellBookForm from '../../components/SellBookForm/SellBookForm';
 import '../SearchBooksPage/SearchBooksPage.css';
+import * as booksAPI from '../../utilities/books-api';
+
 
 // const API_KEY = process.env.REACT_APP_API_KEY;
 
@@ -9,16 +10,10 @@ export default function SellBooksPage() {
   const [query, setQuery] = useState('');
   const [books, setBooks] = useState({ items: [] });
 
-  function handleGetBooks(){
-  const getBooks = async () => {
-    const response = await fetch(
-      `https://www.googleapis.com/books/v1/volumes?q=${query}&printType=books`
-      )
-      const books = await response.json();
-      setBooks(books);
-    };
-      getBooks(books);
-      console.log(books);  
+  async function handleGetBooks(query){
+    console.log(query);
+    const book = await booksAPI.search(query);
+    setBooks(book)
     };
 
     function addBook(book) {
