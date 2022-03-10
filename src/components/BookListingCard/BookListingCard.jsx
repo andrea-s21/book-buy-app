@@ -6,7 +6,7 @@ export default function BookDetails({ book }) {
       <img
         name="imageLinks"
         alt={`${book.title} book`}
-        src={`${book.imageLinks}`}
+        src={`${book.imageLinks.thumbnail}`}
       />
       <h6>Title:</h6>
       <p className="card-title" name="title">{book.title}</p>

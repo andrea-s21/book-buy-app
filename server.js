@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
+const ensureLoggedIn = require('./config/ensureLoggedIn');
 
 // Always require and configure neat the top
 require('dotenv').config();
@@ -21,7 +22,7 @@ app.use(require('./config/checkToken'));
 
 // API routes here
 app.use('/api/users', require('./routes/api/users'));
-app.use('/api/books', require('./routes/api/books'));
+app.use('/api/books', require('./routes/api/books', ensureLoggedIn));
 
 // "Catch all" route
 app.get('/*', function(req, res) {

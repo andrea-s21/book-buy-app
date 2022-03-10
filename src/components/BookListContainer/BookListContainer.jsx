@@ -1,4 +1,4 @@
-import BookCard from "../BookCard/BookCard";
+import BookCard from "../SellBookCard/SellBookCard";
 
 
 export default function BookListContainer({books, addBook}) {

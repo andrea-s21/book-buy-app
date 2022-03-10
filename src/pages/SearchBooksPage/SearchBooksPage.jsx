@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import BookDetails from '../../components/BookDetails/BookDetails';
+import BookListingCard from '../../components/BookListingCard/BookListingCard';
 import * as booksAPI from '../../utilities/books-api';
 import '../SearchBooksPage/SearchBooksPage.css';
 
@@ -19,10 +19,10 @@ export default function SearchBooksPage() {
 
   return (
     <div>
-    <h1>Search Books</h1>
+      <h1>Search Books</h1>
     <ul>
     {books.map((book, index) => {
-       return <BookDetails book={book} key={index}  />;
+       return <BookListingCard book={book} key={index}  />;
      })}
    </ul> 
    </div>
