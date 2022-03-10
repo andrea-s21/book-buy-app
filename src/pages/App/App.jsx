@@ -21,7 +21,7 @@ export default function App() {
               {/* Route components in here */}
               {/* <Route path="/" element={<HomePage />} /> */}
               <Route path="/books/sell" element={<SellBooksPage />} />
-              <Route path="/books/search" element={<SearchBooksPage />} />
+              <Route path="/books/buy" element={<SearchBooksPage />} />
               {/* <Route 
               exact 
               path="/books/:id" 

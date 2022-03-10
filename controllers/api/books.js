@@ -7,7 +7,21 @@ const API_KEY = process.env.API_KEY;
 
 module.exports = {
   search, 
-  addBook
+  addBook,
+  index,
+  getUserListings
+}
+
+
+
+async function getUserListings(req, res) {
+  const books = await Book.find({userId: req.user._id}).populate();
+  res.json(books);
+}
+
+async function index(req, res) {
+  const books = await Book.find({}).sort('name')
+  res.json(books);
 }
 
 async function addBook(req, res) {
