@@ -8,11 +8,11 @@ const bookSchema = new Schema({
     authors: [],
     publisher: {type: String, default: 'Unavailiable'},
     publishedDate: {type: String, default: 'Unavailiable'},
-    averageRating: {type:Number, default: 'Unavailiable'},
+    averageRating: {type:Number, default: 0},
     categories: [],
     description: { type: String, default: 'Unavailiable'},
     condition: {type: String, default: 'Unavailiable'},
-    price: {type: String, default: 'Unavailiable'},
+    price: {type: Number, default: 0},
 }, { timestamps: true });
 
 

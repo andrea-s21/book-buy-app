@@ -4,19 +4,24 @@ import { useState } from 'react';
 export default function BookCard({ book, addBook }) {
   const navigate = useNavigate();
 
-  const [newBook, setNewBook] = useState([]);
+  const [newBook, setNewBook] = useState({
+    condition: '',
+    price: ''
+  });
 
 
   function handleChangeState(evt) {
     const updatedNewBook = {
       ...newBook,
-      [evt.target.price]: evt.target.value
+      [evt.target.name]: evt.target.value
     };
     setNewBook(updatedNewBook);
   }
 
   function handleAddBook() {
     //after submit form redirect user
+    book.condition = newBook.condition;
+    book.price = newBook.price;
     addBook(book)
     navigate('/listings');
   }
@@ -44,6 +49,7 @@ export default function BookCard({ book, addBook }) {
         <label>Price: $</label>
         <input
           name="price"
+          type="number"
           value={newBook.price}
           onChange={handleChangeState}
           placeholder="Price"
@@ -59,7 +65,7 @@ export default function BookCard({ book, addBook }) {
           required
         // pattern=".{4,}"
         />
-        <button onClick={handleAddBook}>List This Book</button>
+        <button type="button" onClick={handleAddBook}>List This Book</button>
 
       </form>
     </div>

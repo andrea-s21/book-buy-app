@@ -25,7 +25,7 @@ async function index(req, res) {
 }
 
 async function addBook(req, res) {
-  console.log(req.body.volumeInfo);
+  console.log(req.body);
   try {
     // Add the book to the db
     const book = await Book.create(req.body.volumeInfo);
