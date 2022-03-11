@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import * as usersService from '../../utilities/users-service';
 
 export default function LoginForm({ setUser }) {
@@ -7,12 +8,13 @@ export default function LoginForm({ setUser }) {
     password: ''
   });
   const [error, setError] = useState('');
-
+  const navigate = useNavigate();
+  
   function handleChange(evt) {
     setCredentials({ ...credentials, [evt.target.name]: evt.target.value });
     setError('');
   }
-
+  
   async function handleSubmit(evt) {
     // Prevent form from being submitted to the server
     evt.preventDefault();
@@ -24,6 +26,7 @@ export default function LoginForm({ setUser }) {
       setUser(user);
     } catch {
       setError('Log In Failed - Try Again');
+      navigate('/');
     }
   }
 

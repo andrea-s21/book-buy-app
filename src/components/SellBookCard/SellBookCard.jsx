@@ -20,9 +20,10 @@ export default function BookCard({ book, addBook }) {
 
   function handleAddBook() {
     //after submit form redirect user
-    book.condition = newBook.condition;
-    book.price = newBook.price;
-    addBook(book)
+    const bookWithUserInfo = {...book};
+    bookWithUserInfo.volumeInfo.condition = newBook.condition;
+    bookWithUserInfo.volumeInfo.price = newBook.price;
+    addBook(bookWithUserInfo)
     navigate('/listings');
   }
 

@@ -3,11 +3,11 @@ const router = express.Router();
 const ensureLoggedIn = require('../../config/ensureLoggedIn')
 const booksCtrl = require('../../controllers/api/books');
 
-
+router.use(ensureLoggedIn);
 
 router.post('/search', booksCtrl.search);
 router.post('/add', booksCtrl.addBook);
 router.get('/', booksCtrl.index);
-router.get('/listings', ensureLoggedIn, booksCtrl.getUserListings);
+router.post('/', booksCtrl.getListings);
 
 module.exports = router;

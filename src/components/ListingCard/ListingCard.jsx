@@ -1,6 +1,5 @@
-import { Link, Routes, Route } from "react-router-dom";
+export default function ListingCard({ book }) {
 
-export default function BookDetails({ book }) {
     return (
       <div> 
       <img
@@ -18,8 +17,10 @@ export default function BookDetails({ book }) {
       <p className="card-title" name="averageRating">{book.averageRating}</p>
       <h6>Category:</h6>
       <p className="card-title" name="categories">{book.categories}</p>
-      <h6>Decription:</h6>
-      <p className="card-title" name="desciption">{book.description}</p>
+      <h6>Price:</h6>
+      <p className="card-title" name="desciption">{book.price}</p>
+      <h6>Condition:</h6>
+      <p className="card-title" name="desciption">{book.condition}</p>
       </div>
     );
   }

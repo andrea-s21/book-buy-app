@@ -1,0 +1,5 @@
+.home-page {
+    display: grid;
+    flex-direction: row;
+    grid-template-rows: repeat(4, 50px);
+}

@@ -1,5 +1,5 @@
-
-import BookListContainer from "../BookListContainer/BookListContainer";
+import './SellBookForm.css';
+import SellBookContainer from "../SellBookContainer/SellBookContainer";
 
 
 export default function SellBookForm({ books, query, setQuery, handleGetBooks, addBook }) {
@@ -14,7 +14,7 @@ export default function SellBookForm({ books, query, setQuery, handleGetBooks, a
                 //  pattern=".{10,}"
                 />
             <button className="ISBN-form" onClick={() => handleGetBooks(query)}>Search</button>
-            <BookListContainer books={books} addBook={addBook} />
+            <SellBookContainer books={books} addBook={addBook} />
         </div>
     );
 }

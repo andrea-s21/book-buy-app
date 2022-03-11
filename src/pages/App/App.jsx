@@ -2,8 +2,9 @@ import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import AuthPage from '../AuthPage/AuthPage';
+import HomePage from '../HomePage/HomePage';
 import SellBooksPage from '../SellBooksPage/SellBooksPage';
-import SearchBooksPage from '../SearchBooksPage/SearchBooksPage';
+import BuyBooksPage from '../BuyBooksPage/BuyBooksPage';
 import CurrentListingsPage from '../CurrentListingsPage/CurrentListingsPage';
 import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage';
 import NavBar from '../../components/NavBar/NavBar';
@@ -19,13 +20,9 @@ export default function App() {
             <NavBar user={user} setUser={setUser} />
             <Routes>
               {/* Route components in here */}
-              {/* <Route path="/" element={<HomePage />} /> */}
-              <Route path="/books/sell" element={<SellBooksPage />} />
-              <Route path="/books/buy" element={<SearchBooksPage />} />
-              {/* <Route 
-              exact 
-              path="/books/:id" 
-              element={<BookDetailPage />} /> */}
+              <Route path="/" element={<HomePage />} />
+              <Route path="/sell" element={<SellBooksPage />} />
+              <Route path="/buy" element={<BuyBooksPage />} />
               <Route path="/listings" element={<CurrentListingsPage />} />
               <Route path="/orders" element={<OrderHistoryPage />} />
             </Routes>

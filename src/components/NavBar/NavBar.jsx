@@ -11,9 +11,9 @@ export default function NavBar({ user, setUser }) {
     <nav>
       <span>Welcome, {user.name}!</span>
       &nbsp; | &nbsp;
-      <Link to="/books/sell">Sell Books</Link>
+      <Link to="/sell">Sell Books</Link>
       &nbsp; | &nbsp;
-      <Link to="/books/buy">Search Available Books</Link>
+      <Link to="/buy">Search Available Books</Link>
       &nbsp; | &nbsp;
       <Link to="/listings">My Listings</Link>
       &nbsp; | &nbsp;

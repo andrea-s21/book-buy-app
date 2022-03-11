@@ -9,18 +9,17 @@ module.exports = {
   search, 
   addBook,
   index,
-  getUserListings
+  getListings
 }
 
-
-
-async function getUserListings(req, res) {
-  const books = await Book.find({userId: req.user._id}).populate();
+async function getListings(req, res) {
+  const books = await Book.find({user: req.user._id}).populate('book').exec();
   res.json(books);
 }
 
+
 async function index(req, res) {
-  const books = await Book.find({}).sort('name')
+  const books = await Book.find({}).exec();
   res.json(books);
 }
 
@@ -31,6 +30,7 @@ async function addBook(req, res) {
     const book = await Book.create(req.body.volumeInfo);
     console.log(book);
     res.json(book);
+
   } catch (err) {
     res.status(400).json(err);
   }

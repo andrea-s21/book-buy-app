@@ -1,18 +1,17 @@
 import { useState, useEffect } from 'react';
-import BookDetails from '../../components/BookListingCard/BookListingCard';
+import ListingCard from '../../components/ListingCard/ListingCard';
 import * as booksAPI from '../../utilities/books-api';
-import '../SearchBooksPage/SearchBooksPage.css';
 
 
 export default function CurrentListingsPage() {
   const [books, setBooks] = useState([]);
 
   useEffect(function() {
-    async function getBookListings() {
-        const books = await booksAPI.getUserListings();
+    async function getAvaliableListings() {
+        const books = await booksAPI.getListings();
         setBooks(books);
     }
-    getBookListings();
+    getAvaliableListings();
 }, [])
 
   
@@ -22,7 +21,7 @@ export default function CurrentListingsPage() {
     <h1>My Book Listings</h1>
     <ul>
     {books.map((book, index) => {
-       return <BookDetails book={book} key={index}  />;
+       return <ListingCard book={book} key={index}  />;
      })}
    </ul> 
    </div>
