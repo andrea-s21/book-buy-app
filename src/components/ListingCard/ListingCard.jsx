@@ -1,13 +1,13 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
-export default function ListingCard({ user, book }) {
+export default function ListingCard({ book, updateBook, setUpdateBook, updateBookListings }) {
 
-  const [updateBook, setUpdateBook] = useState({
-    condition: '',
-    price: ''
-  });
-
+  // const [updateBook, setUpdateBook] = useState({
+  //   condition: '',
+  //   price: ''
+  // });
+  console.log('Book', book);
   function handleChangeState(evt) {
     const updatedBook = {
       ...updateBook,
@@ -16,12 +16,15 @@ export default function ListingCard({ user, book }) {
     setUpdateBook(updatedBook);
   }
 
-  function handleUpdateBook() {
-    const updatedBookWithUserInfo = {...book};
+  function handleUpdateBook(evt) {
+    evt.preventDefault();
     book.condition = updateBook.condition;
     book.price = updateBook.price;
-    book.user = updateBook.id;
-    setUpdateBook(updatedBookWithUserInfo);
+    updateBookListings(updateBook, book._id);
+    setUpdateBook({
+      condition: '',
+      price: ''
+    });
   }
 
     return (
@@ -65,7 +68,7 @@ export default function ListingCard({ user, book }) {
           required
         // pattern=".{4,}"
         />
-        <button type="button" onClick={() => handleUpdateBook(user._id)}>Update Book</button>
+        <button type="button" onClick={handleUpdateBook}>Update Book</button>
 
       </form>
       </div>
