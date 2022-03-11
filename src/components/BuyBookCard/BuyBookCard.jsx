@@ -1,6 +1,10 @@
 
 export default function BookDetails({ book }) {
 
+  function handleAddToCart() {
+
+  }
+
     return (
       <div className="book-listing"> 
       <img
@@ -22,6 +26,9 @@ export default function BookDetails({ book }) {
       <p className="card-title" name="desciption">{book.price}</p>
       <h6>Condition:</h6>
       <p className="card-title" name="desciption">{book.condition}</p>
+      <form>
+        <button type="button" onClick={handleAddToCart}>Add To Card</button>
+      </form>
       </div>
     );
   }

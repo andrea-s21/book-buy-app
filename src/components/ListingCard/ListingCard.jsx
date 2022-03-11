@@ -1,7 +1,33 @@
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+
 export default function ListingCard({ book }) {
+  const navigate = useNavigate();
+
+  const [updateBook, setUpdateBook] = useState({
+    condition: '',
+    price: ''
+  });
+
+  function handleChangeState(evt) {
+    const updatedBook = {
+      ...updateBook,
+      [evt.target.name]: evt.target.value
+    };
+    setUpdateBook(updatedBook);
+  }
+
+  function handleUpdateBook() {
+    //after submit form redirect user
+    // const bookWithUserInfo = {...book};
+    book.condition = updateBook.condition;
+    book.price = updateBook.price;
+    setUpdateBook(updateBook)
+    navigate('/listings');
+  }
 
     return (
-      <div> 
+      <div className="book-listing"> 
       <img
         name="imageLinks"
         alt={`${book.title} book`}
@@ -21,6 +47,30 @@ export default function ListingCard({ book }) {
       <p className="card-title" name="desciption">{book.price}</p>
       <h6>Condition:</h6>
       <p className="card-title" name="desciption">{book.condition}</p>
+      <form>
+        <label>Price: $</label>
+        <input
+          name="price"
+          type="number"
+          value={updateBook.price}
+          onChange={handleChangeState}
+          placeholder="Price"
+          required
+        // pattern=".{4,}"
+        />
+        <label>Condition(e.g. Excellent, Good, Fair, Bad):</label>
+        <input
+          name="condition"
+          value={updateBook.condition}
+          onChange={handleChangeState}
+          placeholder="Book Condition"
+          required
+        // pattern=".{4,}"
+        />
+        <button type="button" onClick={handleUpdateBook}>List This Book</button>
+
+      </form>
       </div>
+      
     );
   }

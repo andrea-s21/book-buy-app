@@ -17,4 +17,7 @@ export function getAll() {
 export function getListings() {
   return sendRequest(BASE_URL);
 }
+export function updateListings({editBook}) {
+  return sendRequest(`${BASE_URL}/edit`, 'PUT', {editBook});
+}
 

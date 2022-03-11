@@ -9,8 +9,15 @@ module.exports = {
   search, 
   addBook,
   index,
-  getListings
+  getListings,
+  edit
 }
+
+async function edit() {
+  const book = await Book.findByIdAndUpdate(req.params.id, req.body.edit);
+  res.json(book);
+}
+
 
 async function getListings(req, res) {
   const books = await Book.find({user: req.user._id}).populate('book').exec();
