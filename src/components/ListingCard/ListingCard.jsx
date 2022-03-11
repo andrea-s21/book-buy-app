@@ -1,8 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
-export default function ListingCard({ book }) {
-  const navigate = useNavigate();
+export default function ListingCard({ user, book }) {
 
   const [updateBook, setUpdateBook] = useState({
     condition: '',
@@ -18,12 +17,11 @@ export default function ListingCard({ book }) {
   }
 
   function handleUpdateBook() {
-    //after submit form redirect user
-    // const bookWithUserInfo = {...book};
+    const updatedBookWithUserInfo = {...book};
     book.condition = updateBook.condition;
     book.price = updateBook.price;
-    setUpdateBook(updateBook)
-    navigate('/listings');
+    book.user = updateBook.id;
+    setUpdateBook(updatedBookWithUserInfo);
   }
 
     return (
@@ -67,7 +65,7 @@ export default function ListingCard({ book }) {
           required
         // pattern=".{4,}"
         />
-        <button type="button" onClick={handleUpdateBook}>List This Book</button>
+        <button type="button" onClick={() => handleUpdateBook(user._id)}>Update Book</button>
 
       </form>
       </div>

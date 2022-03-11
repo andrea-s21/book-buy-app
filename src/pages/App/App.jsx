@@ -21,9 +21,9 @@ export default function App() {
             <Routes>
               {/* Route components in here */}
               <Route path="/" element={<HomePage />} />
-              <Route path="/sell" element={<SellBooksPage />} />
+              <Route path="/sell" element={<SellBooksPage user={user} />} />
               <Route path="/buy" element={<BuyBooksPage />} />
-              <Route path="/listings" element={<CurrentListingsPage />} />
+              <Route path="/listings" element={<CurrentListingsPage user={user} />} />
               <Route path="/orders" element={<OrderHistoryPage />} />
             </Routes>
           </>

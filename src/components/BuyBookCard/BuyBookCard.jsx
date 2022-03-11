@@ -1,5 +1,5 @@
 
-export default function BookDetails({ book }) {
+export default function BuyBookCard({ book }) {
 
   function handleAddToCart() {
 
@@ -27,7 +27,7 @@ export default function BookDetails({ book }) {
       <h6>Condition:</h6>
       <p className="card-title" name="desciption">{book.condition}</p>
       <form>
-        <button type="button" onClick={handleAddToCart}>Add To Card</button>
+        <button type="button" onClick={handleAddToCart}>Add To Cart</button>
       </form>
       </div>
     );

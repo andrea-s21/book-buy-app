@@ -3,7 +3,7 @@ import ListingCard from '../../components/ListingCard/ListingCard';
 import * as booksAPI from '../../utilities/books-api';
 
 
-export default function CurrentListingsPage() {
+export default function CurrentListingsPage({user}) {
   const [books, setBooks] = useState([]);
 
   useEffect(function() {
@@ -21,7 +21,7 @@ export default function CurrentListingsPage() {
     <h1>My Book Listings</h1>
     <ul>
     {books.map((book, index) => {
-       return <ListingCard book={book} key={index}  />;
+       return <ListingCard book={book} key={index} user={user}  />;
      })}
    </ul> 
    </div>

@@ -13,27 +13,30 @@ module.exports = {
   edit
 }
 
-async function edit() {
+async function edit(req, res) {
   const book = await Book.findByIdAndUpdate(req.params.id, req.body.edit);
+  console.log(book);
   res.json(book);
 }
 
 
 async function getListings(req, res) {
-  const books = await Book.find({user: req.user._id}).populate('book').exec();
+  const books = await Book.find({user: req.user._id}).exec();
+  // console.log(books);
   res.json(books);
 }
 
 
 async function index(req, res) {
+  console.log(req.body);
   const books = await Book.find({}).exec();
   res.json(books);
 }
 
 async function addBook(req, res) {
-  console.log(req.body);
   try {
     // Add the book to the db
+    req.body.user = req.user._id;
     const book = await Book.create(req.body.volumeInfo);
     console.log(book);
     res.json(book);
