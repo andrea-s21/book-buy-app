@@ -8,13 +8,21 @@ module.exports = {
   addBook,
   index,
   getListings,
-  updateListings
+  updateListings,
+  deleteListings
+}
+
+async function deleteListings(req, res) {
+  console.log('HELLO!', req.body);
+  const book = await Book.findByIdAndDelete(req.body.id);
+  // console.log(book);
+  res.json(book);
 }
 
 async function updateListings(req, res) {
-  console.log('HELLO!', req.body);
+  // console.log('HELLO!', req.body);
   const book = await Book.findByIdAndUpdate(req.body.id, req.body.book, {new: true});
-  console.log(book);
+  // console.log(book);
   res.json(book);
 }
 
@@ -26,7 +34,7 @@ async function getListings(req, res) {
 
 
 async function index(req, res) {
-  console.log(req.body);
+  // console.log(req.body);
   const books = await Book.find({}).exec();
   res.json(books);
 }
@@ -36,7 +44,7 @@ async function addBook(req, res) {
     // Add the book to the db
     req.body.user = req.user._id;
     const book = await Book.create(req.body.volumeInfo);
-    console.log(book);
+    // console.log(book);
     res.json(book);
 
   } catch (err) {

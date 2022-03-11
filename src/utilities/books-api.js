@@ -21,4 +21,7 @@ export function getListings() {
 export function updateListings(book, id) {
   return sendRequest(`${BASE_URL}/edit`, 'PUT', {book, id});
 }
+export function deleteListings(book, id) {
+  return sendRequest(`${BASE_URL}/delete`, 'DELETE', {book, id});
+}
 

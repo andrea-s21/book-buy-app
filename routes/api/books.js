@@ -10,5 +10,6 @@ router.post('/add', booksCtrl.addBook);
 router.get('/', booksCtrl.index);
 router.get('/listings', booksCtrl.getListings);
 router.put('/edit', booksCtrl.updateListings);
+router.delete('/delete', booksCtrl.deleteListings);
 
 module.exports = router;

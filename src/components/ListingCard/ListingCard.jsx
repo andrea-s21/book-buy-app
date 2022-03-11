@@ -1,13 +1,13 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
-export default function ListingCard({ book, updateBook, setUpdateBook, updateBookListings }) {
+export default function ListingCard({ book, updateBook, setUpdateBook, updateBookListings, deleteBook, setDeleteBook, deleteBookListings }) {
 
   // const [updateBook, setUpdateBook] = useState({
   //   condition: '',
   //   price: ''
   // });
-  console.log('Book', book);
+  // console.log('Book', book);
   function handleChangeState(evt) {
     const updatedBook = {
       ...updateBook,
@@ -25,6 +25,11 @@ export default function ListingCard({ book, updateBook, setUpdateBook, updateBoo
       condition: '',
       price: ''
     });
+  }
+
+  function handleDeleteBook() {
+    deleteBookListings(deleteBook, book._id);
+    setDeleteBook(deleteBook);
   }
 
     return (
@@ -69,7 +74,7 @@ export default function ListingCard({ book, updateBook, setUpdateBook, updateBoo
         // pattern=".{4,}"
         />
         <button type="button" onClick={handleUpdateBook}>Update Book</button>
-
+        <button type="button" onClick={handleDeleteBook}>Delete Book</button>
       </form>
       </div>
       
