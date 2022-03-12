@@ -1,8 +1,9 @@
 
-export default function BuyBookCard({ book }) {
+export default function BuyBookCard({ book, cart, setCart, addToCart }) {
 
-  function handleAddToCart() {
-
+  async function handleAddToOrder() {
+    addToCart(book, book._id);
+    setCart(cart);
   }
 
     return (
@@ -27,7 +28,7 @@ export default function BuyBookCard({ book }) {
       <h6>Condition:</h6>
       <p className="card-title" name="desciption">{book.condition}</p>
       <form>
-        <button type="button" onClick={handleAddToCart}>Add To Cart</button>
+        <button type="button" onClick={handleAddToOrder}>Add To Cart</button>
       </form>
       </div>
     );

@@ -3,11 +3,6 @@ import { useState } from 'react';
 
 export default function ListingCard({ book, updateBook, setUpdateBook, updateBookListings, deleteBook, setDeleteBook, deleteBookListings }) {
 
-  // const [updateBook, setUpdateBook] = useState({
-  //   condition: '',
-  //   price: ''
-  // });
-  // console.log('Book', book);
   function handleChangeState(evt) {
     const updatedBook = {
       ...updateBook,
