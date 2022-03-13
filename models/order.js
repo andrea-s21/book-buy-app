@@ -1,19 +1,19 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const itemSchema = require('./itemSchema');
+const bookSchema = require('./bookSchema');
 
 const lineItemSchema = new Schema({
   qty: { type: Number, default: 1 },
-  book: { type: Schema.Types.ObjectId, ref: 'Book'},
+  book: bookSchema,
 }, {
   timestamps: true,
   toJSON: { virtuals: true }
 });
 
-lineItemSchema.virtual('extPrice').get(function() {
-  // 'this' is bound to the lineItem subdoc
-  return this.qty * this.book.price;
-});
+// lineItemSchema.virtual('extPrice').get(function() {
+//   // 'this' is bound to the lineItem subdoc
+//   return this.qty * this.book.price;
+// });
 
 const orderSchema = new Schema({
   user: { type: Schema.Types.ObjectId, ref: 'User' },
@@ -49,25 +49,26 @@ orderSchema.statics.getCart = function(userId) {
   );
 };
 
-orderSchema.methods.addBookToCart = async function(book, id) {
+orderSchema.methods.addBookToCart = async function(bookId) {
   const cart = this;
   // Check if item already in cart
-  const lineItem = cart.lineItems.find(lineItem => lineItem.book._id.equals(book, id));
+  console.log(cart.lineItems, 'Book Item Console');
+  const lineItem = cart.lineItems.find(lineItem => lineItem.book._id.equals(bookId));
   if (lineItem) {
     lineItem.qty += 1;
   } else {
-    const book = await mongoose.model('Book').findById(book, id);
-    cart.lineItems.push({ book });
+    const item = await mongoose.model('Book').findById(bookId);
+    cart.lineItems.push({ item });
   }
   return cart.save();
 };
 
 // Instance method to set an item's qty in the cart (will add item if does not exist)
-orderSchema.methods.setItemQty = function(book, id, newQty) {
+orderSchema.methods.setItemQty = function(bookItem, newQty) {
   // this keyword is bound to the cart (order doc)
   const cart = this;
   // Find the line item in the cart for the menu item
-  const lineItem = cart.lineItems.find(lineItem => lineItem.book._id.equals(book, id));
+  const lineItem = cart.lineItems.find(lineItem => lineItem.book._id.equals(bookItem));
   if (lineItem && newQty <= 0) {
     // Calling remove, removes itself from the cart.lineItems array
     lineItem.remove();

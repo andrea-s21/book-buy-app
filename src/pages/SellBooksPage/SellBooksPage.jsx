@@ -8,14 +8,12 @@ export default function SellBooksPage({user}) {
   const [query, setQuery] = useState('');
   const [books, setBooks] = useState({ items: [] });
   
-  // useEffect(function() {
+
   async function handleGetBooks(query) {
     console.log(query);
     const book = await booksAPI.search(query);
     setBooks(book)
   };
-  // handleGetBooks();
-// },[]);
 
   async function addBook(newBook) {
     console.log(newBook)
@@ -27,7 +25,11 @@ export default function SellBooksPage({user}) {
   return (
     <div>
       <h1>Sell A Book</h1>
-      <SellBookForm user={user} books={books} query={query} setQuery={setQuery} handleGetBooks={handleGetBooks} addBook={addBook} />
+      <SellBookForm user={user} 
+      books={books} query={query} 
+      setQuery={setQuery} 
+      handleGetBooks={handleGetBooks} 
+      addBook={addBook} />
     </div>
   );
 }

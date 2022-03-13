@@ -1,10 +1,6 @@
 
-export default function BuyBookCard({ book, cart, setCart, addToCart }) {
+export default function BuyBookCard({ book, bookItem, handleAddToOrder }) {
 
-  async function handleAddToOrder() {
-    addToCart(book, book._id);
-    setCart(cart);
-  }
 
     return (
       <div className="book-listing"> 
@@ -28,7 +24,7 @@ export default function BuyBookCard({ book, cart, setCart, addToCart }) {
       <h6>Condition:</h6>
       <p className="card-title" name="desciption">{book.condition}</p>
       <form>
-        <button type="button" onClick={handleAddToOrder}>Add To Cart</button>
+        <button type="button" onClick={() => handleAddToOrder(book._id)}>Add To Cart</button>
       </form>
       </div>
     );

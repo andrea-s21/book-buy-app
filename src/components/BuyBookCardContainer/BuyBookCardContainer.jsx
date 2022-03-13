@@ -2,16 +2,15 @@ import './BuyBookCardContainer.css';
 import BuyBookCard from "../BuyBookCard/BuyBookCard";
 
 
-export default function BookListContainer({ books, cart, setCart, addToCart }) {
+export default function BookListContainer({ books, bookItems, setBookItems, handleAddToOrder }) {
+  
     return(
         <ul className="book-container">
     {books.map((book, index) => {
        return <BuyBookCard 
+       handleAddToOrder={handleAddToOrder}
        book={book} 
        key={index} 
-       addToCart={addToCart} 
-       cart={cart} 
-       setCart={setCart}
        />;
      })}
       </ul> 

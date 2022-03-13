@@ -1,6 +1,6 @@
 const Book = require('../../models/book');
 var fetch = require("node-fetch");
-const book = require('../../models/book');
+const book = require('../../models/bookSchema');
 const API_KEY = process.env.API_KEY;
 
 module.exports = {
