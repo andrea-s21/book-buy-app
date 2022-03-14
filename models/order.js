@@ -10,10 +10,10 @@ const lineItemSchema = new Schema({
   toJSON: { virtuals: true }
 });
 
-// lineItemSchema.virtual('extPrice').get(function() {
-//   // 'this' is bound to the lineItem subdoc
-//   return this.qty * this.book.price;
-// });
+lineItemSchema.virtual('extPrice').get(function() {
+  // 'this' is bound to the lineItem subdoc
+  return this.qty * this.book.price;
+});
 
 const orderSchema = new Schema({
   user: { type: Schema.Types.ObjectId, ref: 'User' },
@@ -57,8 +57,8 @@ orderSchema.methods.addBookToCart = async function(bookId) {
   if (lineItem) {
     lineItem.qty += 1;
   } else {
-    const item = await mongoose.model('Book').findById(bookId);
-    cart.lineItems.push({ item });
+    const book = await mongoose.model('Book').findById(bookId);
+    cart.lineItems.push({ book });
   }
   return cart.save();
 };

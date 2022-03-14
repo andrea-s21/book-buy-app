@@ -8,9 +8,8 @@ import * as ordersAPI from '../../utilities/orders-api';
 
 
 
-export default function SearchBooksPage() {
+export default function BuyBooksPage() {
   const [books, setBooks] = useState([]);
-  const [bookItems, setBookItems] = useState([]);
   const [cart, setCart] = useState(null);
   const navigate = useNavigate();
   
@@ -23,19 +22,12 @@ export default function SearchBooksPage() {
   }, []);
 
     useEffect(function() { 
-    async function getCart(bookItems) {
-      const cart = await ordersAPI.getCart(bookItems);
+    async function getCart() {
+      const cart = await ordersAPI.getCart();
       setCart(cart);
     }
     getCart();
   }, []);
-
-  // async function addBookToCart(bookItem, id) {
-  //   // console.log(updateBook);
-  //   const book = await ordersAPI.addBookToCart(bookItem, id)
-  //   console.log(book, "SUCCESS!")
-  //   setBookItems(bookItems)
-  // }
 
   async function handleAddToOrder(bookId) {
     console.log(bookId);
@@ -44,10 +36,10 @@ export default function SearchBooksPage() {
   }
   
 
-  // async function handleChangeQty(itemId, newQty) {
-  //   const updatedCart = await ordersAPI.setItemQtyInCart(itemId, newQty);
-  //   setCart(updatedCart);
-  // }
+  async function handleChangeQty(bookId, newQty) {
+    const updatedCart = await ordersAPI.setItemQtyInCart(bookId, newQty);
+    setCart(updatedCart);
+  }
 
   async function handleCheckout() {
     await ordersAPI.checkout();
@@ -58,11 +50,11 @@ export default function SearchBooksPage() {
     <main className="BookBuyPage">
       <h1>Search Books</h1>
     <ul>
-    <BuyBookCardContainer books={books} bookItems={bookItems} setBookItems={setBookItems} handleAddToOrder={handleAddToOrder}  />
+    <BuyBookCardContainer books={books} handleAddToOrder={handleAddToOrder}  />
    </ul> 
    <OrderDetail
         order={cart}
-        // handleChangeQty={handleChangeQty}
+        handleChangeQty={handleChangeQty}
         handleCheckout={handleCheckout}
       />
    </main>

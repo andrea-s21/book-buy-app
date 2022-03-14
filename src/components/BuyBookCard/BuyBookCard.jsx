@@ -1,5 +1,5 @@
 
-export default function BuyBookCard({ book, bookItem, handleAddToOrder }) {
+export default function BuyBookCard({ book, handleAddToOrder }) {
 
 
     return (
