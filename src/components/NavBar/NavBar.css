@@ -10,6 +10,10 @@ nav {
     font-family: 'Quicksand', sans-serif;
 }
 
+.logo-img {
+    width: 15vh;
+}
+
 .nav-links {
     background-color: #031d44;
     color: white;

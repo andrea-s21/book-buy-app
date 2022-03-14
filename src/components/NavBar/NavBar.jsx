@@ -10,6 +10,7 @@ export default function NavBar({ user, setUser }) {
 
   return (
     <nav>
+      <img className="logo-img" src={process.env.PUBLIC_URL+"BookBuy.svg"} />
       <span>Welcome, {user.name}!</span>
       &nbsp;  &nbsp;
       <Link className="nav-links" to="/sell">Sell Books</Link>
