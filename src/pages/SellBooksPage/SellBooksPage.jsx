@@ -24,7 +24,17 @@ export default function SellBooksPage({user}) {
 
   return (
     <div>
-      <h1>Sell A Book</h1>
+      <h1 className="sell-book">Sell A Book</h1>
+      <div>
+      <h3>Please follow the instructions below to list a book for sale.</h3>
+      <br />
+      <h6>1. Search for your book using the search bar below by entering the book's title or ISBN#.</h6>
+      <br />
+      <h6>2. Once you find your book, enter the price and condition.</h6>
+      <br />
+      <h6>3. Select "Add Listing" and update your listing as needed from the "My Listings" page.</h6>
+      <br />
+      </div>
       <SellBookForm user={user} 
       books={books} query={query} 
       setQuery={setQuery} 

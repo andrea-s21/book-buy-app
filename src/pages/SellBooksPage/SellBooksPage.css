@@ -1,0 +1,19 @@
+h3 {
+    font-weight: 600;
+    font-size: 30px;  
+}
+
+h6 {
+    box-sizing: content-box;
+    margin: auto;
+    width: auto;
+    font-weight: 400;
+    font-size: 20px;  
+}
+
+.sell-book {
+    font-weight: 700;
+    font-size: 60px;  
+    padding: 5vmin;
+}
+

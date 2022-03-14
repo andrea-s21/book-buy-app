@@ -11,7 +11,8 @@ export default function AuthPage({ setUser }) {
       <img src={process.env.PUBLIC_URL+"HomePage.png"} />
       <div>
       <h1>Welcome to BookBuy!</h1>
-      <h5>A marketplace for buying and selling used books.</h5>
+      <h3>A marketplace for buying and selling used books.</h3>
+      <br />
       <button onClick={() => setShowLogin(!showLogin)}>{showLogin ? 'Sign Up' : 'Log In'}</button>
       { showLogin ?
         <LoginForm setUser={setUser} />

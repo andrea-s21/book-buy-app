@@ -13,7 +13,10 @@ export default function SellBookForm({ user, books, query, setQuery, handleGetBo
                 required
                 //  pattern=".{10,}"
                 />
-            <button className="ISBN-form" onClick={() => handleGetBooks(query)}>Search</button>
+                <br />
+            <button className="sell-form" onClick={() => handleGetBooks(query)}>Search</button>
+            <hr />
+            <br />
             <SellBookContainer user={user} books={books} addBook={addBook} />
         </div>
     );

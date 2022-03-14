@@ -1,3 +1,4 @@
+import './SellBookCard.css';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
@@ -19,7 +20,6 @@ export default function BookCard({ user, book, addBook }) {
   }
 
   function handleAddBook(id) {
-    //after submit form redirect user
     const bookWithUserInfo = {...book};
     bookWithUserInfo.volumeInfo.condition = newBook.condition;
     bookWithUserInfo.volumeInfo.price = newBook.price;
@@ -29,24 +29,26 @@ export default function BookCard({ user, book, addBook }) {
   }
 
   return (
-    <div>
+    <div className="scene">
+      <div className="sell-book-card">
+        <div className="card__face card__face--front">
       <img
         name="imageLinks"
         alt={`${book.volumeInfo.title} book`}
         src={`${book.volumeInfo.imageLinks.thumbnail}`}
       />
-      <h6>Title:</h6>
-      <p className="card-title" name="title">{book.volumeInfo.title}</p>
-      <h6>Author(s):</h6>
-      <p className="card-title" name="authors">{book.volumeInfo.authors}</p>
-      <h6>Published Date:</h6>
-      <p className="card-title" name="published">{book.volumeInfo.publishedDate}</p>
-      <h6>Average Rating:</h6>
-      <p className="card-title" name="averageRating">{book.volumeInfo.averageRating}</p>
-      <h6>Category:</h6>
-      <p className="card-title" name="categories">{book.volumeInfo.categories}</p>
-      <h6>Decription:</h6>
-      <p className="card-title" name="desciption">{book.volumeInfo.description}</p>
+      <h6 className="card-title">Title:</h6>
+      <p name="title">{book.volumeInfo.title}</p>
+      <h6 className="card-title">Author(s):</h6>
+      <p  name="authors">{book.volumeInfo.authors}</p>
+      <h6 className="card-title">Published Date:</h6>
+      <p name="published">{book.volumeInfo.publishedDate}</p>
+      <h6 className="card-title">Average Rating:</h6>
+      <p name="averageRating">{book.volumeInfo.averageRating}</p>
+      <h6 className="card-title">Category:</h6>
+      <p name="categories">{book.volumeInfo.categories}</p>
+      <h6 className="card-title">Decription:</h6>
+      <p name="desciption">{book.volumeInfo.description}</p>
       <form>
         <label>Price: $</label>
         <input
@@ -56,20 +58,20 @@ export default function BookCard({ user, book, addBook }) {
           onChange={handleChangeState}
           placeholder="Price"
           required
-        // pattern=".{4,}"
-        />
-        <label>Condition(e.g. Excellent, Good, Fair, Bad):</label>
+          />
+        <label>Condition:</label>
         <input
           name="condition"
           value={newBook.condition}
           onChange={handleChangeState}
-          placeholder="Book Condition"
-          required
-        // pattern=".{4,}"
-        />
+          placeholder="e.g. Excellent, Good, Fair, Bad"
+          />
+          <br />
+          <br />
         <button type="button" onClick={() => handleAddBook(user._id)}>List This Book</button>
-
       </form>
+      </div>
+          </div>
     </div>
   );
 }

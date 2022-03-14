@@ -13,7 +13,7 @@ h1 {
     font-size: 60px;
 }
 
-h5 {
+h3 {
     font-weight: 600;
     font-size: 30px;
 }
@@ -21,6 +21,7 @@ h5 {
 button {
     background-color: var(--green);
     border-radius: 3px;
+    font-size: 20px;
 }
 
 
