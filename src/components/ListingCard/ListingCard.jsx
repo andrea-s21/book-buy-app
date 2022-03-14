@@ -57,7 +57,6 @@ export default function ListingCard({ book, updateBook, setUpdateBook, updateBoo
           onChange={handleChangeState}
           placeholder="Price"
           required
-        // pattern=".{4,}"
         />
         <label>Condition(e.g. Excellent, Good, Fair, Bad):</label>
         <input
@@ -66,7 +65,6 @@ export default function ListingCard({ book, updateBook, setUpdateBook, updateBoo
           onChange={handleChangeState}
           placeholder="Book Condition"
           required
-        // pattern=".{4,}"
         />
         <button type="button" onClick={handleUpdateBook}>Update Book</button>
         <button type="button" onClick={handleDeleteBook}>Delete Book</button>

@@ -5,12 +5,14 @@ import BuyBookCardContainer from '../../components/BuyBookCardContainer/BuyBookC
 import OrderDetail from '../../components/OrderDetail/OrderDetail';
 import * as booksAPI from '../../utilities/books-api';
 import * as ordersAPI from '../../utilities/orders-api';
+import SearchBookForm from '../../components/SeacrhBookForm/SearchBookForm';
 
 
 
 export default function BuyBooksPage() {
   const [books, setBooks] = useState([]);
   const [cart, setCart] = useState(null);
+  const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate();
   
   useEffect(function() {
@@ -45,10 +47,19 @@ export default function BuyBooksPage() {
     await ordersAPI.checkout();
     navigate('/orders');
   }
+
+  async function handleSearch(searchQuery) {
+    // console.log(query);
+    const query = await booksAPI.searchDatabase(searchQuery);
+    setSearchQuery(query)
+  };
   
   return (
     <main className="BookBuyPage">
-      <h1>Search Books</h1>
+      <h1>Search Books</h1> 
+      {/* {books.map((book, index) => {
+          return <SearchBookForm  book={book} key={index} handleSearch={handleSearch} />;
+        })} */}
     <ul>
     <BuyBookCardContainer books={books} handleAddToOrder={handleAddToOrder}  />
    </ul> 

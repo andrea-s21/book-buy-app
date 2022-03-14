@@ -17,19 +17,16 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-  sans-serif;
+  font-family: 'Quicksand', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--tan-1);
-  padding: 2vmin;
   height: 100vh;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: 'Quicksand', sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
 #root {
@@ -79,24 +76,23 @@ code {
   font-size: 2vmin;
 }
 
-.form-container {
-  padding: 3vmin;
+/* .form-container {
   background-color: var(--tan-1);
   border: .1vmin solid var(--tan-3);
   border-radius: 1vmin;
-}
+} */
 
 p.error-message {
   color: var(--orange);
   text-align: center;
 }
 
-form {
+/* form {
   display: grid;
   grid-template-columns: 1fr 3fr;
   gap: 1.25vmin;
   color: var(--text-light);
-}
+} */
 
 label {
   font-size: 2vmin;
@@ -106,32 +102,18 @@ label {
 
 input {
   padding: 1vmin;
+  width: 50vh;
   font-size: 2vmin;
-  border: .1vmin solid var(--tan-3);
+  border: .1vmin solid var( --yellow-tan);
   border-radius: .5vmin;
   color: var(--text-dark);
-  background-image: none !important; /* prevent lastpass */
+  background-image: none !important;
   outline: none;
-}
+} 
 
 input:focus {
-  border-color: var(--orange);
-}
-
-button, a.button {
-  margin: 1vmin;
-  padding: 1vmin;
-  color: var(--dark-blue);
-  background-color: var(--orange);
-  font-size: 2vmin;
-  font-weight: bold;
-  text-decoration: none;
-  text-align: center;
-  border: .1vmin solid var(--tan-2);
-  border-radius: .5vmin;
-  outline: none;
-  cursor: pointer;
-}
+  border-color: var(--peach);
+} 
 
 button.btn-sm {
   font-size: 1.5vmin;
@@ -145,10 +127,13 @@ button.btn-xs {
 
 button:disabled, form:invalid button[type="submit"] {
   cursor: not-allowed;
-  background-color: var(--tan-4);
+  border-radius: 3px;
+  background-color: var( --tan-1);
 }
 
 button[type="submit"] {
+  border-radius: 3px;
+  background-color: var( --green);
   grid-column: span 2;
   margin: 1vmin 0 0;
 }

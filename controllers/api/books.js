@@ -5,6 +5,7 @@ const API_KEY = process.env.API_KEY;
 
 module.exports = {
   search, 
+  searchDatabase,
   addBook,
   index,
   getListings,
@@ -14,9 +15,9 @@ module.exports = {
 
 async function deleteListings(req, res) {
   console.log('HELLO!', req.body);
-  const book = await Book.findByIdAndDelete(req.body.id);
+  const books = await Book.findByIdAndDelete(req.body.id);
   // console.log(book);
-  res.json(book);
+  res.json(books);
 }
 
 async function updateListings(req, res) {
@@ -52,6 +53,12 @@ async function addBook(req, res) {
   }
 }
 
+async function searchDatabase(req, res) {
+  // console.log('HELLO!');
+  const books = await Book.find(req.body.query).exec();
+  res.json(books);
+};
+
 async function search(req, res) {
   // console.log('HELLO!');
   const response = await fetch(
@@ -67,7 +74,6 @@ async function search(req, res) {
     .catch(err => {
       res.status(400).json(err);
     });
-
 };
 
 

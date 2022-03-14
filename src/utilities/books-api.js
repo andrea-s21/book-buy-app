@@ -25,4 +25,7 @@ export function deleteListings(book, id) {
   return sendRequest(`${BASE_URL}/delete`, 'DELETE', {book, id});
 }
 
+export function searchDatabase(query) {
+  return sendRequest(`${BASE_URL}/search`, 'POST', {query});
+}
 
