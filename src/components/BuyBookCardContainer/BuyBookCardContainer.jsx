@@ -2,7 +2,7 @@ import './BuyBookCardContainer.css';
 import BuyBookCard from "../BuyBookCard/BuyBookCard";
 
 
-export default function BookListContainer({ books, handleAddToOrder }) {
+export default function BookCardContainer({ books, handleAddToOrder }) {
   
     return(
       <>

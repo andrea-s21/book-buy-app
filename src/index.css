@@ -52,6 +52,7 @@ code {
 .flex-ctr-ctr {
   display: flex;
   justify-content: center;
+  color: var(--dark-blue);
   align-items: center;
   font-size: 2vmin;
 }

@@ -1,4 +1,4 @@
-// import './OrderHistoryPage.css';
+import './OrderHistoryPage.css';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import * as ordersAPI from '../../utilities/orders-api';
@@ -30,17 +30,17 @@ export default function OrderHistoryPage({ user, setUser }) {
     /*--- Rendered UI --- */
     return (
       <main className="OrderHistoryPage">
-        <aside>
-          <Link to="/orders/new" className="button btn-sm">NEW ORDER</Link>
-        </aside>
+        <h1 className="order-history">My Order History</h1>
         <OrderList
           orders={orders}
           activeOrder={activeOrder}
           handleSelectOrder={handleSelectOrder}
         />
+        <div>
         <OrderDetail
           order={activeOrder}
         />
+        </div>
       </main>
     );
   }

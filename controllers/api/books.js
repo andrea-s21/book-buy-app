@@ -5,7 +5,6 @@ const API_KEY = process.env.API_KEY;
 
 module.exports = {
   search, 
-  searchDatabase,
   addBook,
   index,
   getListings,
@@ -52,12 +51,6 @@ async function addBook(req, res) {
     res.status(400).json(err);
   }
 }
-
-async function searchDatabase(req, res) {
-  // console.log('HELLO!');
-  const books = await Book.find(req.body.query).exec();
-  res.json(books);
-};
 
 async function search(req, res) {
   // console.log('HELLO!');

@@ -21,17 +21,13 @@ export default function CurrentListingsPage({user}) {
 }, []);
 
 async function updateBookListings(updateBook, id) {
-  console.log(updateBook);
   const book = await booksAPI.updateListings(updateBook, id)
-  console.log(book, "SUCCESS!")
   setUpdateBook(updateBook)
 }
 
 async function deleteBookListings(deleteBook, id) {
-  // console.log(updateBook);
   const book = await booksAPI.deleteListings(deleteBook, id)
-  console.log(book, "DELETED!")
-  setDeleteBook(deleteBook)
+  setDeleteBook(book)
 }
   
 

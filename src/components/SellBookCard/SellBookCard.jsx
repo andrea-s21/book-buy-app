@@ -29,9 +29,7 @@ export default function BookCard({ user, book, addBook }) {
   }
 
   return (
-    <div className="scene">
       <div className="sell-book-card">
-        <div className="card__face card__face--front">
       <img
         name="imageLinks"
         alt={`${book.volumeInfo.title} book`}
@@ -71,7 +69,5 @@ export default function BookCard({ user, book, addBook }) {
         <button type="button" onClick={() => handleAddBook(user._id)}>List This Book</button>
       </form>
       </div>
-          </div>
-    </div>
   );
 }

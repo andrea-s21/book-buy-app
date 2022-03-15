@@ -6,7 +6,6 @@ const booksCtrl = require('../../controllers/api/books');
 router.use(ensureLoggedIn);
 
 router.post('/search', booksCtrl.search);
-router.post('/search', booksCtrl.searchDatabase);
 router.post('/add', booksCtrl.addBook);
 router.get('/', booksCtrl.index);
 router.get('/listings', booksCtrl.getListings);

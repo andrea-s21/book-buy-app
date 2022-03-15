@@ -1,6 +1,8 @@
 import './ListingCard.css';
+import { useNavigate } from 'react-router-dom';
 
 export default function ListingCard({ book, updateBook, setUpdateBook, updateBookListings, deleteBook, setDeleteBook, deleteBookListings }) {
+  const navigate = useNavigate();
 
   function handleChangeState(evt) {
     const updatedBook = {
@@ -24,6 +26,7 @@ export default function ListingCard({ book, updateBook, setUpdateBook, updateBoo
   function handleDeleteBook() {
     deleteBookListings(deleteBook, book._id);
     setDeleteBook(deleteBook);
+    navigate('/search');
   }
 
     return (
