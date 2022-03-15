@@ -9,12 +9,12 @@ export default function LoginForm({ setUser }) {
   });
   const [error, setError] = useState('');
   const navigate = useNavigate();
-  
+
   function handleChange(evt) {
     setCredentials({ ...credentials, [evt.target.name]: evt.target.value });
     setError('');
   }
-  
+
   async function handleSubmit(evt) {
     // Prevent form from being submitted to the server
     evt.preventDefault();

@@ -20,7 +20,7 @@ export default class SignUpForm extends Component {
   handleSubmit = async (evt) => {
     evt.preventDefault();
     try {
-      const formData = {...this.state};
+      const formData = { ...this.state };
       delete formData.confirm;
       delete formData.error;
       // The promise returned by the signUp service method

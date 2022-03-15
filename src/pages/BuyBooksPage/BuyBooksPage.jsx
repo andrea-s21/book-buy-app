@@ -10,8 +10,8 @@ export default function BuyBooksPage() {
   const [books, setBooks] = useState([]);
   const [cart, setCart] = useState(null);
   const navigate = useNavigate();
-  
-  useEffect(function() {
+
+  useEffect(function () {
     async function getAvaliableBooks() {
       const books = await booksAPI.getAll();
       setBooks(books);
@@ -19,7 +19,7 @@ export default function BuyBooksPage() {
     getAvaliableBooks();
   }, []);
 
-    useEffect(function() { 
+  useEffect(function () {
     async function getCart() {
       const cart = await ordersAPI.getCart();
       setCart(cart);
@@ -32,7 +32,7 @@ export default function BuyBooksPage() {
     const updatedCart = await ordersAPI.addBookToCart(bookId);
     setCart(updatedCart);
   }
-  
+
 
   async function handleChangeQty(bookId, newQty) {
     const updatedCart = await ordersAPI.setItemQtyInCart(bookId, newQty);
@@ -43,18 +43,18 @@ export default function BuyBooksPage() {
     await ordersAPI.checkout();
     navigate('/orders');
   }
-  
+
   return (
     <main className="BookBuyPage">
-    <ul>
-    <BuyBookCardContainer books={books} handleAddToOrder={handleAddToOrder}  />
-   </ul> 
-       <OrderDetail
+      <ul>
+        <BuyBookCardContainer books={books} handleAddToOrder={handleAddToOrder} />
+      </ul>
+      <OrderDetail
         order={cart}
         handleChangeQty={handleChangeQty}
         handleCheckout={handleCheckout}
       />
-   </main>
-   
+    </main>
+
   );
 }

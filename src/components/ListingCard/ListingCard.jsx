@@ -29,8 +29,8 @@ export default function ListingCard({ book, updateBook, setUpdateBook, updateBoo
     navigate('/search');
   }
 
-    return (
-      <div className="book-listing-card"> 
+  return (
+    <div className="book-listing-card">
       <img
         name="imageLinks"
         alt={`${book.title} book`}
@@ -39,7 +39,7 @@ export default function ListingCard({ book, updateBook, setUpdateBook, updateBoo
       <h6 className="card-title">Title:</h6>
       <p name="title">{book.title}</p>
       <h6>Author(s):</h6>
-      <p  name="authors">{book.authors}</p>
+      <p name="authors">{book.authors}</p>
       <h6 className="card-title">Published Date:</h6>
       <p name="published">{book.publishedDate}</p>
       <h6 className="card-title">Average Rating:</h6>
@@ -47,7 +47,7 @@ export default function ListingCard({ book, updateBook, setUpdateBook, updateBoo
       <h6 className="card-title">Category:</h6>
       <p name="categories">{book.categories}</p>
       <h6 className="card-title">Price:</h6>
-      <p name="desciption">{book.price}</p>
+      <p name="desciption">{`$${book.price.toFixed(2)}`}</p>
       <h6 className="card-title">Condition:</h6>
       <p name="desciption">{book.condition}</p>
       <form>
@@ -75,7 +75,7 @@ export default function ListingCard({ book, updateBook, setUpdateBook, updateBoo
         <br />
         <button type="button" onClick={handleDeleteBook}>Delete Book</button>
       </form>
-      </div>
-      
-    );
-  }
+    </div>
+
+  );
+}

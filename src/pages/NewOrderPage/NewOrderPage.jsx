@@ -8,8 +8,8 @@ import * as itemsAPI from '../../utilities/items-api';
 export default function SearchBooksPage() {
   const [items, setItems] = useState([]);
   const [cart, setCart] = useState(null);
-  
-  useEffect(function() {
+
+  useEffect(function () {
     async function getItems() {
       const items = await itemsAPI.getAll();
       setMenuItems(items);
@@ -22,21 +22,21 @@ export default function SearchBooksPage() {
     getCart();
   }, []);
 
- /*-- Event Handlers --*/
-async function handleAddToOrder(itemId) {
-  const updatedCart = await ordersAPI.addToCart(itemId);
-  console.log(book, "ADDED!")
-  setCart(updatedCart);
-}
+  /*-- Event Handlers --*/
+  async function handleAddToOrder(itemId) {
+    const updatedCart = await ordersAPI.addToCart(itemId);
+    console.log(book, "ADDED!")
+    setCart(updatedCart);
+  }
 
-  
+
   return (
     <main className="BookBuyPage">
       <h1>Search Books</h1>
-    <ul>
-    <BuyBookCardContainer books={books} cart={cart} setCart={setCart} items={items} handleAddToOrder={handleAddToOrder}  />
-   </ul> 
-   </main>
-   
+      <ul>
+        <BuyBookCardContainer books={books} cart={cart} setCart={setCart} items={items} handleAddToOrder={handleAddToOrder} />
+      </ul>
+    </main>
+
   );
 }

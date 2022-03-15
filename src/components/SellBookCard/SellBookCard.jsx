@@ -20,7 +20,7 @@ export default function BookCard({ user, book, addBook }) {
   }
 
   function handleAddBook(id) {
-    const bookWithUserInfo = {...book};
+    const bookWithUserInfo = { ...book };
     bookWithUserInfo.volumeInfo.condition = newBook.condition;
     bookWithUserInfo.volumeInfo.price = newBook.price;
     bookWithUserInfo.volumeInfo.user = id;
@@ -29,7 +29,7 @@ export default function BookCard({ user, book, addBook }) {
   }
 
   return (
-      <div className="sell-book-card">
+    <div className="sell-book-card">
       <img
         name="imageLinks"
         alt={`${book.volumeInfo.title} book`}
@@ -38,7 +38,7 @@ export default function BookCard({ user, book, addBook }) {
       <h6 className="card-title">Title:</h6>
       <p name="title">{book.volumeInfo.title}</p>
       <h6 className="card-title">Author(s):</h6>
-      <p  name="authors">{book.volumeInfo.authors}</p>
+      <p name="authors">{book.volumeInfo.authors}</p>
       <h6 className="card-title">Published Date:</h6>
       <p name="published">{book.volumeInfo.publishedDate}</p>
       <h6 className="card-title">Average Rating:</h6>
@@ -56,18 +56,18 @@ export default function BookCard({ user, book, addBook }) {
           onChange={handleChangeState}
           placeholder="Price"
           required
-          />
+        />
         <label>Condition:</label>
         <input
           name="condition"
           value={newBook.condition}
           onChange={handleChangeState}
           placeholder="e.g. Excellent, Good, Fair, Bad"
-          />
-          <br />
-          <br />
+        />
+        <br />
+        <br />
         <button type="button" onClick={() => handleAddBook(user._id)}>List This Book</button>
       </form>
-      </div>
+    </div>
   );
 }

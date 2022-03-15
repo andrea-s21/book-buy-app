@@ -1,10 +1,11 @@
 const express = require('express');
 const router = express.Router();
+const ensureLoggedIn = require('../../config/ensureLoggedIn')
 const itemsCtrl = require('../../controllers/api/items');
 
-// GET /api/items
+router.use(ensureLoggedIn);
+
 router.get('/', itemsCtrl.index);
-// GET /api/items/:id
 router.get('/:id', itemsCtrl.show);
 
 module.exports = router;
