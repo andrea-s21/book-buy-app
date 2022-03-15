@@ -10,15 +10,12 @@ export default function SellBooksPage({ user }) {
 
 
   async function handleGetBooks(query) {
-    console.log(query);
     const book = await booksAPI.search(query);
     setBooks(book)
   };
 
   async function addBook(newBook) {
-    console.log(newBook)
     const books = await booksAPI.addBook(newBook)
-    console.log(books, "SUCCESS!")
     setBooks(books)
   }
 

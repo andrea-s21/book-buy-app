@@ -9,8 +9,8 @@
 }
   
 .OrderList .no-orders {
-    color: var(--text-light);
+    color: var(--dark-blue);
     font-size: 2vmin;
-    position: absolute;
+    text-align: center;
     top: calc(50vh);
 }

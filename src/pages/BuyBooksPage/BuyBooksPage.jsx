@@ -28,7 +28,6 @@ export default function BuyBooksPage() {
   }, []);
 
   async function handleAddToOrder(bookId) {
-    console.log(bookId);
     const updatedCart = await ordersAPI.addBookToCart(bookId);
     setCart(updatedCart);
   }

@@ -25,7 +25,6 @@ export default function SearchBooksPage() {
   /*-- Event Handlers --*/
   async function handleAddToOrder(itemId) {
     const updatedCart = await ordersAPI.addToCart(itemId);
-    console.log(book, "ADDED!")
     setCart(updatedCart);
   }
 
