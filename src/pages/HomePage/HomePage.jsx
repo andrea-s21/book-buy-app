@@ -4,7 +4,7 @@ import './HomePage.css';
 export default function HomePage({ user }) {
     return(
         <main className="home-page">
-        <img src={process.env.PUBLIC_URL+"HomePage.png"} />
+        <img className="home-img" src={process.env.PUBLIC_URL+"HomePage.png"} />
         <div>
         <div>
         <h1 className="welcome">Welcome, {user.name}!</h1>

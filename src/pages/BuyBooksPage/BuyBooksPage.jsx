@@ -56,14 +56,14 @@ export default function BuyBooksPage() {
   
   return (
     <main className="BookBuyPage">
-      <h1>Search Books</h1> 
+
       {/* {books.map((book, index) => {
           return <SearchBookForm  book={book} key={index} handleSearch={handleSearch} />;
-        })} */}
+        })} */} 
     <ul>
     <BuyBookCardContainer books={books} handleAddToOrder={handleAddToOrder}  />
    </ul> 
-   <OrderDetail
+       <OrderDetail
         order={cart}
         handleChangeQty={handleChangeQty}
         handleCheckout={handleCheckout}

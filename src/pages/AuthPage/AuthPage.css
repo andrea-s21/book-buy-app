@@ -3,7 +3,7 @@
     grid-template-columns: repeat(2, 1fr);
 }
 
-img {
+.auth-img {
     width: 70vh;
 }
 

@@ -1,4 +1,4 @@
-// import './LineItem.css';
+import './LineItem.css';
 
 export default function LineItem({ lineItem, isPaid, handleChangeQty }) {
   return (
@@ -11,14 +11,8 @@ export default function LineItem({ lineItem, isPaid, handleChangeQty }) {
             className="btn-xs"
             onClick={() => handleChangeQty(lineItem.book._id, lineItem.qty - 1)}
           >−</button>
-        }
+        }&nbsp;
         <span>{lineItem.qty}</span>
-        {!isPaid &&
-          <button
-            className="btn-xs"
-            onClick={() => handleChangeQty(lineItem.book._id, lineItem.qty + 1)}
-          >+</button>
-        }
       </div>
         <div className="ext-price">${lineItem.extPrice.toFixed(2)}</div>
       </div>

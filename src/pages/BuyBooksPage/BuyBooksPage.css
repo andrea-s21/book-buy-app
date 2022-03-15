@@ -1,10 +1,14 @@
 .BookBuyPage {
-    height: 100%;
-    display: grid;
-    grid-template-columns: 1.6fr 3.5fr 3fr;
-    grid-template-rows: 1fr;
-    border-radius: 2vmin;
-  }
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5vmin;
+}
+
+.search-books {
+  font-weight: 700;
+  font-size: 60px;  
+  padding: 5vmin;
+}
   
 
 

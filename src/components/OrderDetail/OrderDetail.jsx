@@ -1,4 +1,4 @@
-// import './OrderDetail.css';
+import './OrderDetail.css';
 import LineItem from '../LineItem/LineItem';
 
 // Used to display the details of any order, including the cart (unpaid order)
@@ -29,6 +29,10 @@ export default function OrderDetail({ order, handleChangeQty, handleCheckout }) 
           <>
             {lineItems}
             <section className="total">
+              <h5>Books In Cart: {order.totalQty}</h5>
+              <br />
+              <h5 className="right">${order.orderTotal.toFixed(2)}</h5>
+              <br />
               {order.isPaid ?
                 <span className="right">TOTAL&nbsp;&nbsp;</span>
                 :
@@ -38,8 +42,6 @@ export default function OrderDetail({ order, handleChangeQty, handleCheckout }) 
                   disabled={!lineItems.length}
                 >CHECKOUT</button>
               }
-              <span>{order.totalQty}</span>
-              <span className="right">${order.orderTotal.toFixed(2)}</span>
             </section>
           </>
           :
