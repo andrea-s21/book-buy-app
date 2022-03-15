@@ -1,3 +1,4 @@
+import './CurrentListingsPage.css';
 import { useState, useEffect } from 'react';
 import ListingCardContainer from '../../components/ListingCardContainer/ListingCardContianer';
 import * as booksAPI from '../../utilities/books-api';
@@ -36,7 +37,7 @@ async function deleteBookListings(deleteBook, id) {
 
   return (
     <div>
-    <h1>My Book Listings</h1>
+    <h1 className="book-listing">My Book Listings</h1>
     <ul>
     <ListingCardContainer 
     books={books} 

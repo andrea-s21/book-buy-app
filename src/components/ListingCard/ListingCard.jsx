@@ -1,5 +1,4 @@
-import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import './ListingCard.css';
 
 export default function ListingCard({ book, updateBook, setUpdateBook, updateBookListings, deleteBook, setDeleteBook, deleteBookListings }) {
 
@@ -28,26 +27,26 @@ export default function ListingCard({ book, updateBook, setUpdateBook, updateBoo
   }
 
     return (
-      <div className="book-listing"> 
+      <div className="book-listing-card"> 
       <img
         name="imageLinks"
         alt={`${book.title} book`}
         src={`${book.imageLinks.thumbnail}`}
       />
-      <h6>Title:</h6>
-      <p className="card-title" name="title">{book.title}</p>
+      <h6 className="card-title">Title:</h6>
+      <p name="title">{book.title}</p>
       <h6>Author(s):</h6>
-      <p className="card-title" name="authors">{book.authors}</p>
-      <h6>Published Date:</h6>
-      <p className="card-title" name="published">{book.publishedDate}</p>
-      <h6>Average Rating:</h6>
-      <p className="card-title" name="averageRating">{book.averageRating}</p>
-      <h6>Category:</h6>
-      <p className="card-title" name="categories">{book.categories}</p>
-      <h6>Price:</h6>
-      <p className="card-title" name="desciption">{book.price}</p>
-      <h6>Condition:</h6>
-      <p className="card-title" name="desciption">{book.condition}</p>
+      <p  name="authors">{book.authors}</p>
+      <h6 className="card-title">Published Date:</h6>
+      <p name="published">{book.publishedDate}</p>
+      <h6 className="card-title">Average Rating:</h6>
+      <p name="averageRating">{book.averageRating}</p>
+      <h6 className="card-title">Category:</h6>
+      <p name="categories">{book.categories}</p>
+      <h6 className="card-title">Price:</h6>
+      <p name="desciption">{book.price}</p>
+      <h6 className="card-title">Condition:</h6>
+      <p name="desciption">{book.condition}</p>
       <form>
         <label>Price: $</label>
         <input
@@ -66,7 +65,11 @@ export default function ListingCard({ book, updateBook, setUpdateBook, updateBoo
           placeholder="Book Condition"
           required
         />
+        <br />
+        <br />
         <button type="button" onClick={handleUpdateBook}>Update Book</button>
+        <br />
+        <br />
         <button type="button" onClick={handleDeleteBook}>Delete Book</button>
       </form>
       </div>
