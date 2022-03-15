@@ -51,7 +51,7 @@
 <p></p>
 
 ## Next Steps 
-- Incorporate AWS S3 to allow users the ability to upload thier ouwn images of books.
+- Incorporate AWS S3 to allow users the ability to upload thier own images of books.
 <p></p>
 
 - Add a search feature to search books in database by title or keyword when looking for a book to purchase.
