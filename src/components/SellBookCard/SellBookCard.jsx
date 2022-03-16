@@ -25,7 +25,7 @@ export default function BookCard({ user, book, addBook }) {
     bookWithUserInfo.volumeInfo.price = newBook.price;
     bookWithUserInfo.volumeInfo.user = id;
     addBook(bookWithUserInfo)
-    navigate('/listings');
+    navigate('/buy');
   }
 
   return (
@@ -33,7 +33,7 @@ export default function BookCard({ user, book, addBook }) {
       <img
         name="imageLinks"
         alt={`${book.volumeInfo.title} book`}
-        src={`${book.volumeInfo.imageLinks.thumbnail}`}
+        src={`${book.volumeInfo?.imageLinks.thumbnail}`}
       />
       <h6 className="card-title">Title:</h6>
       <p name="title">{book.volumeInfo.title}</p>

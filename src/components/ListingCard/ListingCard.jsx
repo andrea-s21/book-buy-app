@@ -1,10 +1,19 @@
 import './ListingCard.css';
 import { useNavigate } from 'react-router-dom';
 
-export default function ListingCard({ book, updateBook, setUpdateBook, updateBookListings, deleteBook, setDeleteBook, deleteBookListings }) {
+export default function ListingCard({ 
+  book, 
+  updateBook, 
+  setUpdateBook, 
+  updateBookListings, 
+  deleteBook, 
+  setDeleteBook, 
+  deleteBookListings 
+}) {
   const navigate = useNavigate();
 
   function handleChangeState(evt) {
+    evt.preventDefault();
     const updatedBook = {
       ...updateBook,
       [evt.target.name]: evt.target.value
@@ -26,7 +35,7 @@ export default function ListingCard({ book, updateBook, setUpdateBook, updateBoo
   function handleDeleteBook() {
     deleteBookListings(deleteBook, book._id);
     setDeleteBook(deleteBook);
-    navigate('/search');
+    navigate('/buy');
   }
 
   return (
@@ -38,7 +47,7 @@ export default function ListingCard({ book, updateBook, setUpdateBook, updateBoo
       />
       <h6 className="card-title">Title:</h6>
       <p name="title">{book.title}</p>
-      <h6>Author(s):</h6>
+      <h6 className="card-title">Author(s):</h6>
       <p name="authors">{book.authors}</p>
       <h6 className="card-title">Published Date:</h6>
       <p name="published">{book.publishedDate}</p>
@@ -47,7 +56,7 @@ export default function ListingCard({ book, updateBook, setUpdateBook, updateBoo
       <h6 className="card-title">Category:</h6>
       <p name="categories">{book.categories}</p>
       <h6 className="card-title">Price:</h6>
-      <p name="desciption">{`$${book.price.toFixed(2)}`}</p>
+      <p name="desciption">{`$${book.price}`}</p>
       <h6 className="card-title">Condition:</h6>
       <p name="desciption">{book.condition}</p>
       <form>

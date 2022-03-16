@@ -10,7 +10,7 @@ export default function CurrentListingsPage({ user }) {
     condition: '',
     price: ''
   });
-  const [deleteBook, setDeleteBook] = useState([]);
+  const [deleteBook, setDeleteBook] = useState();
 
   useEffect(function () {
     async function getAvaliableListings() {
@@ -22,7 +22,7 @@ export default function CurrentListingsPage({ user }) {
 
   async function updateBookListings(updateBook, id) {
     const book = await booksAPI.updateListings(updateBook, id)
-    setUpdateBook(updateBook)
+    setUpdateBook(book);
   }
 
   async function deleteBookListings(deleteBook, id) {

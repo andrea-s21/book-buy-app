@@ -9,7 +9,7 @@ export default function BuyBookCard({ book, handleAddToOrder }) {
       />
       <h6 className="card-title">Title:</h6>
       <p name="title">{book.title}</p>
-      <h6>Author(s):</h6>
+      <h6 className="card-title">Author(s):</h6>
       <p name="authors">{book.authors}</p>
       <h6 className="card-title">Published Date:</h6>
       <p name="published">{book.publishedDate}</p>
