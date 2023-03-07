@@ -18,7 +18,7 @@ export default function BuyBookCard({ book, handleAddToOrder }) {
       <h6 className="card-title">Category:</h6>
       <p name="categories">{book.categories}</p>
       <h6 className="card-title">Price:</h6>
-      <p name="pricen">{`$${book.price.toFixed(2)}`}</p>
+      <p name="pricen">{`$${book.price?.toFixed(2)}`}</p>
       <h6 className="card-title">Condition:</h6>
       <p name="condition">{book.condition}</p>
       <h6 className="card-title">Description:</h6>
